@@ -52,8 +52,8 @@ class LocationService {
 
   void subscribeOnUpdates(Function(LocationData) onChanged) async {
     if (_locationSubscription == null) {
-      await _location.changeSettings(interval: 30000, distanceFilter: 30);
-      _location.onLocationChanged.listen((onChanged));
+      await _location.changeSettings(interval: 60000, distanceFilter: 0);
+      _locationSubscription = _location.onLocationChanged.listen((onChanged));
     }
   }
 
